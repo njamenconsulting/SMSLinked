@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Contacts\UploadedContactRequest;
-use App\Http\Requests\Contacts\UploadRequest;
+
 use App\Repositories\ContactRepositoryInterface;
-use App\Services\Csv_Service\CsvImporter;
-use App\Services\Csv_Service\CsvImportValidator;
+
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 
@@ -44,28 +42,26 @@ class UploadContactController extends Controller
 
         //Determine if a file is present on the request
         if ($request->hasFile('upload-file')) {
-
+            //Retrieve csv file
             $uploaded_csv_file = $request->file('upload-file');
+            //Set delimiter
             $delimiter =';';
 
             //verify that there were no problems uploading the file
             if ($uploaded_csv_file->isValid()) {
 
-                // Create validator object
-                $validator = App::make('App\Services\Csv_Service\CsvImportValidator');
                 // Run validation with input file
-                $validator = $validator->validateHeader($uploaded_csv_file, $delimiter);
+                $validator = app('CsvHeaderValidator')::validateHeader($uploaded_csv_file, $delimiter);
 
                 if ($validator->fails()) {
 
                     return redirect()->route('upload.create')->withErrors($validator);
                 }
-                //
-                $data = app('HelperService')::getArrayFromCSVFile( $uploaded_csv_file ,$delimiter);
+                //Convert Csv uploaded file into array
+                $data = app('CsvToArrayConverter')::getArrayFromCSVFile( $uploaded_csv_file ,$delimiter);
 
                //Store file contains into cache for next form request
                 $cache_key = 'csvdata' .Auth::id();
-
                 Cache::put($cache_key, $data, $seconds = 1000);
 
                 //Redirect to

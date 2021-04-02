@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'SMSLinked-v2'),
+    'name' => env('APP_NAME', 'SMSLinked'),
 
     /*
     |--------------------------------------------------------------------------
@@ -228,7 +228,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'CsvToArray' => App\Helpers\CsvToArrayConverter::class,
+        'CsvValidator' =>App\Helpers\CsvHeaderValidator::class,
     ],
 
 ];

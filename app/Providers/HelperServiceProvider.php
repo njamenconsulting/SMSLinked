@@ -13,8 +13,12 @@ class HelperServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('HelperService', function () {
-              return new \App\Services\HelperService();
+        //
+        $this->app->bind('CsvHeaderValidator', function () {
+            return new \App\Helpers\CsvHeaderValidator();
+        });
+        $this->app->bind('CsvToArrayConverter', function () {
+            return new \App\Helpers\CsvToArrayConverter();
         });
     }
 

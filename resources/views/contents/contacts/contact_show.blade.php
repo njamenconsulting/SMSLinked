@@ -19,7 +19,7 @@
 
       <p> Phone Number 1: <span class="has-text-link-dark  has-text-weight-medium is-size-6"> {{ $contact->contact_phone1 }} </span> </p>
 
-      <p> Phone Number 2: <span class="has-text-link-dark  has-text-weight-medium is-size-6"> {{ $contact->contact_phone2 }} </span> </p>
+      <p> Campus: <span class="has-text-link-dark  has-text-weight-medium is-size-6"> {{ $contact->contact_campus }} </span> </p>
 
       <p> Email:<span class="has-text-link-dark  has-text-weight-medium is-size-6"> {{ $contact->contact_email }}</span> </p>
 

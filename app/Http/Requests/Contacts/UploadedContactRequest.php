@@ -25,12 +25,13 @@ class UploadedContactRequest extends FormRequest
     public function rules()
     {
         $group_code = $this->request->get('group_code');
+        //dd($this->request->all());
         return [
 
             'contact_firstname.*' => ['bail','required','max:255'],
             'contact_lastname.*' => ['bail','nullable','max:255'],
             'contact_phone1.*' => ['bail','required','distinct:strict','regex:/^(2|6)([0-9]{8})$/','unique:contacts,contact_phone1,contact_phone2'],
-            'contact_phone2.*' =>['bail','nullable','distinct:strict','regex:/^(2|6)([0-9]{8})$/','unique:contacts,contact_phone2,contact_phone1'],
+            'contact_campus.*' => ['bail','required',Rule::in(['bangangte', 'douala', 'yaounde'])],
             'contact_email.*' => ['bail','required','email','distinct:strict','max:255','unique:contacts,contact_email'],
             'group_code.*' => ['bail','required','exists:groups,group_code'],
 

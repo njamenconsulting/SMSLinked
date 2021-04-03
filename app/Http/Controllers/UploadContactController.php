@@ -98,7 +98,7 @@ class UploadContactController extends Controller
      */
     public function store(UploadedContactRequest $request)
     {
-        //$inputs = $request->only('contact_firstname.*', 'contact_lastname.*', 'contact_phone1.*', 'contact_phone2.*', 'contact_email.*','group_code.*');
+        //$inputs = $request->only('contact_firstname.*', 'contact_lastname.*', 'contact_phone1.*', 'contact_campus.*', 'contact_email.*','group_code.*');
 
         $inputs = $request->except(['_token']);
 

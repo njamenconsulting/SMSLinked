@@ -22,8 +22,8 @@ class GroupFactory extends Factory
     public function definition()
     {
         return [
-          'group_name'=>$this->faker->unique()->sentence($nbWords = 3, $variableNbWords = true) ,
-           'group_code'=>$this->faker->unique()->numerify('GROUP-###'),
+            'group_name'=>$this->faker->unique()->sentence($nbWords = 3, $variableNbWords = true) ,
+            'group_code'=>$this->faker->unique()->numerify('GROUP-###'),
             'group_description'=> $this->faker->sentence($nbWords = 6, $variableNbWords = true),
             'created_by'=> $this->faker->name,
             'updated_by'=>$this->faker->name

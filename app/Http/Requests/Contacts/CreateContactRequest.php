@@ -27,7 +27,7 @@ class CreateContactRequest extends FormRequest
             'contact_firstname' => ['bail','required','max:255'],
             'contact_lastname' => ['bail','nullable','max:255'],
             'contact_phone1' => ['bail','required','regex:/^(2|6)([0-9]{8})$/','unique:contacts'],
-            'contact_phone2' =>['bail','nullable','regex:/^(2|6)([0-9]{8})$/','unique:contacts'],
+            'contact_campus' => ['bail','required',Rule::in(['bangangte', 'douala', 'yaounde'])],
             'contact_email' => ['bail','required','email','max:255','unique:contacts'],
             'group_id' => ['bail','required','exists:App\Models\Group,id'],
         ];

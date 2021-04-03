@@ -28,7 +28,7 @@ class UpdateContactRequest extends FormRequest
             'contact_firstname' => ['bail','required','max:255'],
             'contact_lastname' => ['bail','nullable','max:255'],
             'contact_phone1' => ['bail','required','regex:/^(2|6)([0-9]{8})$/',Rule::unique('contacts', 'contact_phone1')->ignore($this->contact)],
-            'contact_phone2' =>['bail','nullable','regex:/^(2|6)([0-9]{8})$/',Rule::unique('contacts', 'contact_phone2')->ignore($this->contact)],
+            'contact_campus' => ['bail','required',Rule::in(['bangangte', 'douala', 'yaounde'])],
             'contact_email' => ['bail','required','email','max:255',Rule::unique('contacts', 'contact_email')->ignore($this->contact)],
             'group_id' => ['bail','required','exists:groups,id'],
         ];

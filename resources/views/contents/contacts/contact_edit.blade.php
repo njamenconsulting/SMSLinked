@@ -15,7 +15,7 @@
     <form class="box" action="{{ route('contact.update', $contact->id) }}" method="POST">
         @csrf
         @method('put')
-        <input type="hidden" name="created_by" id="created_by" value="{{Auth::user()->name }}">
+
         <input type="hidden" name="updated_by" id="updated_by" value="{{Auth::user()->name }}">
         <input type="hidden" name="contact_id" id="contact_id" value="{{ $contact->id }}">
 
@@ -59,18 +59,36 @@
                     </div>
                 </div>
 
+                <!-- SELECT CAMPUS -->
                 <div class="column is-half">
-                    <!-- Text input-->
+
                     <div class="field">
-                        <label class="label" for="contact_phone2"> <span class="icon is-small is-left"><i class="mdi mdi-phone-classic"></i></span> Phone Number 2:</label>
+                        <label class="label" for="contact_campus"><span class="icon"><i class="mdi mdi-home-city"></i></span> Select Campus :</label>
                         <div class="control">
-                            <input id="contact_phone2" name="contact_phone2" type="text" value="{{ $contact->contact_phone2 ??  old('contact_phone2') }}"  placeholder="placeholder" class="input @error('contact_phone2') is-danger @enderror">
-                            @error('contact_phone2')
+                            <div class="select">
+                                <select name="contact_campus">
+                                    <option value="">Select campus...</option>
+
+                                    <option value="bangangte" @if(old('contact_campus') == 'bangangte') {{ 'selected' }} @endif>
+                                        Campus principal de Bangangte
+                                    </option>
+
+                                    <option value="douala" @if(old('contact_campus') == 'douala') {{ 'selected' }} @endif>
+                                        Campus annexe de Douala
+                                    </option>
+
+                                    <option value="yaounde" @if(old('contact_campus') == 'yaounde') {{ 'selected' }} @endif>
+                                        Campus annexe de Yaounde
+                                    </option>
+
+                                </select>
+                            </div>
+                            @error('contact_campus')
                             <p class="help is-danger">{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
-                </div>
+                </div>     <!-- ../ SELECT CAMPUS-->
 
                 <div class="column is-half">
                     <!-- Text input-->

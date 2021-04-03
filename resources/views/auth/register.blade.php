@@ -5,6 +5,9 @@
 
   <form method="POST" action="{{ route('register') }}">
    @csrf
+      <input type="hidden" name="role_id" id="role_id" value="1">
+      <input type="hidden" name="status" id="status" value="pending">
+
    <div class="columns is-multiline is-mobile">
             <div class="column is-half">
                 <div class="field">
@@ -24,7 +27,7 @@
                 <div class="field">
                   <label class="label">Email Address:</label>
                     <div class="control has-icons-left">
-                        <input class="input @error('email') is-invalid @enderror" type="email" id="email" name="email" value="{{old('email') }}"  placeholder="Your Email" autofocus="">
+                        <input class="input @error('email') is-invalid @enderror" type="email" id="email" name="email" value="{{old('email') }}"  placeholder="Your Email">
                         <span class="icon is-small is-left">
                           <i class="fas fa-envelope"></i>
                         </span>

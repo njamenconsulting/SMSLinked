@@ -17,7 +17,7 @@
                 <th > FirstName </th>
                 <th > LastName </th>
                 <th>  Phone 1</th>
-                <th>  Phone 2</th>
+                <th>  Campus</th>
                 <th>  Email Address </th>
                 <th>  Group code </th>
             </tr>
@@ -60,8 +60,8 @@
                         @enderror
                     </td>
                     <td>
-                        <input name="contact_phone2[]" type="tel" value="{{ $value['phone2'] ??  old('contact_phone2') }}"class=" is-small input @error('contact_phone2.' . $key) is-danger @enderror">
-                        @error('contact_phone2.' . $key)
+                        <input name="contact_campus[]" type="tel" value="{{ $value['campus'] ??  old('contact_campus') }}"class=" is-small input @error('contact_campus.' . $key) is-danger @enderror">
+                        @error('contact_campus.' . $key)
                         <p class="help is-danger">{{ $message }}</p>
                         @enderror
                     </td>

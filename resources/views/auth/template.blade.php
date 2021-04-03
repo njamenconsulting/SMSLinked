@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ config('app.name', 'SMSLinked-v2') }}</title>
+  <title>{{ config('app.name', 'SMSLinked') }}</title>
 
   <!-- Bulma is included -->
 
@@ -83,6 +83,7 @@
           </a>
         </li>
       </ul>
+
       <p class="menu-label">Message</p>
       <ul class="menu-list">
 
@@ -103,8 +104,8 @@
             </li>
             <li>
               <a href="{{ route('sms.index') }}">
-                <span class="icon"><i class="mdi mdi-message-text"></i></span>
-                <span>Show SMS</span>
+                  <span class="icon"><i class="mdi mdi-eye"></i></span>
+                  <span>Show SMS</span>
               </a>
             </li>
           </ul>
@@ -183,6 +184,37 @@
           </a>
         </li>
       </ul>
+
+        <p class="menu-label"> ADMIN </p>
+        <ul class="menu-list">
+
+            <li>
+                <a class="has-icon has-dropdown-icon">
+                    <span class="icon"><i class="mdi mdi-account-supervisor-circle"></i></span>
+                    <span class="menu-item-label">Users</span>
+                    <div class="dropdown-icon">
+                        <span class="icon"><i class="mdi mdi-plus"></i></span>
+                    </div>
+                </a>
+                <ul>
+                    <li>
+                        <a href="{{route('register')}}">
+                            <span class="icon"><i class="mdi mdi-account-plus"></i></span>
+                            <span>New User</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('group.index')}}">
+                            <span class="icon"><i class="mdi mdi-eye"></i></span>
+                            <span>Show Users</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+
+
     </div>
   </aside>
   <section class="section is-title-bar">
@@ -221,15 +253,15 @@
             © 2020, NjamenConsulting
           </div>
           <div class="level-item">
-            <a href="https://github.com/vikdiesel/admin-one-bulma-dashboard" style="height: 20px">
-              <img src="https://img.shields.io/github/v/release/vikdiesel/admin-one-bulma-dashboard?color=%23999">
+            <a href="https://orange-ticketing-platform.herokuapp.com" style="height: 20px">
+              <img src=" ">
             </a>
           </div>
         </div>
         <div class="level-right">
           <div class="level-item">
             <div class="logo">
-              <a href="https://justboil.me"><img src="img/justboil-logo.svg" alt="JustBoil.me"></a>
+              <a href="https://justboil.me"><img src=" " alt="njamenconsulting"></a>
             </div>
           </div>
         </div>

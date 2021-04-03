@@ -27,9 +27,9 @@ class ContactFactory extends Factory
                 'contact_firstname'=>$this->faker->firstName($gender = null),
                 'contact_lastname'=>$this->faker->lastName,
                 'contact_phone1'=>$this->faker->unique()->regexify('^(2|6)[0-9]{8}$'),
-                'contact_phone2'=>$this->faker->unique()->regexify('^(2|6)[0-9]{8}$'),
                 'contact_email'=>$this->faker->unique()->safeEmail,
                 'group_id'=>$group->id ,
+                'contact_campus'=>$this->faker->randomElement($array = ['bangangte','douala','yaounde']),
                 'created_by'=>$this->faker->name,
                 'updated_by'=>$this->faker->name
          ];

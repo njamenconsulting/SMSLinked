@@ -37,7 +37,7 @@ abstract class BaseRepository
     /**
      * @return Collection
      */
-    public function all(): Collection
+    public function getAll()
     {
         return $this->model->all();
     }

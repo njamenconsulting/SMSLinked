@@ -18,8 +18,8 @@ class CreateContactsTable extends Migration
           $table->string('contact_firstname',255);
           $table->string('contact_lastname',255)->nullable();
           $table->string('contact_phone1',10)->unique();
-          $table->string('contact_phone2',10)->unique()->nullable();
           $table->string('contact_email',255)->unique();
+          $table->enum('contact_campus',['bangangte','douala','yaounde']);
           //Add foreign key
           $table->unsignedBigInteger('group_id');
           $table->foreign('group_id')

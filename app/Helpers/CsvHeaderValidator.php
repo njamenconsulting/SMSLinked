@@ -24,7 +24,7 @@ class CsvHeaderValidator
         'firstname_key' => 'required',
         'lastname_key'  => 'required',
         'phone1_key'   => 'required',
-        'phone2_key' => 'required',
+        'campus_key' => 'required',
         'email_key'  => 'required',
         'group_code_key' => 'required',
         'group_name_key' => 'nullable',
@@ -57,7 +57,7 @@ class CsvHeaderValidator
         $validation_array['phone1_key'] = self::getColumnNameByValue($header, 'phone1');
 
         // Find last_name column
-        $validation_array['phone2_key'] = self::getColumnNameByValue($header, 'phone2');
+        $validation_array['campus_key'] = self::getColumnNameByValue($header, 'campus');
 
         // Find email column
         $validation_array['email_key'] = self::getColumnNameByValue($header, 'email');
@@ -87,7 +87,7 @@ class CsvHeaderValidator
             'firstname_key.required' => 'Please ensure you that the title of 1st column is -firstname-',
             'lastname_key.required' => 'Please ensure you that the title of 2nd column is -lastname-',
             'phone1_key.required' => 'Please ensure you that the title of 3rd column is -phone1-',
-            'phone2_key.required' => 'Please ensure you that the title of 4th column is -phone2-',
+            'campus_key.required' => 'Please ensure you that the title of 4th column is -campus-',
             'email.required' => 'Please ensure you that the title of 5th column is -email-',
             'group_code_key.required' => 'Please ensure you that the title of 6th column is -group_code-',
             'group_code_name.required' => 'Please ensure you that the title of 6th column is -group_name-',
@@ -106,7 +106,7 @@ class CsvHeaderValidator
             'firstname_key' => 'firstname',
             'lastname_key'  => 'lastname',
             'phone1_key'   => '1rst phone number',
-            'phone2_key' => '2nd phone number',
+            'campus_key' => '2nd phone number',
             'email_key'  => 'email address',
             'group_code_key' => 'group code',
             'group_name_key' => 'group name',

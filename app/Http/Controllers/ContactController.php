@@ -6,6 +6,10 @@ use App\Http\Requests\Contacts\UpdateContactRequest;
 use App\Models\Contact;
 use App\Repositories\ContactRepositoryInterface;
 use App\Repositories\ContactRepository;
+
+use App\Repositories\GroupRepositoryInterface;
+use App\Repositories\GroupRepository;
+
 use Illuminate\Http\Request;
 use App\Http\Requests\Contacts\CreateContactRequest;
 
@@ -16,12 +20,15 @@ use Illuminate\Support\Facades\Auth;
 class ContactController extends Controller
 {
     protected $contactRepository;
+    protected $groupRepository;
 
     protected $nbrPerPage = 4;
 
-    public function __construct(ContactRepositoryInterface $contactRepository)
+    public function __construct(ContactRepositoryInterface $contactRepository,
+                                GroupRepositoryInterface $groupRepository)
     {
         $this->contactRepository = $contactRepository;
+        $this->groupRepository = $groupRepository;
     }
     /**
      * Display a listing of the resource.
@@ -43,8 +50,9 @@ class ContactController extends Controller
      */
     public function create(Request $request)
     {
-        $groups = DB::table('groups')->get();
-        return view('contents.contacts.contact_create_form',compact('groups'));
+        $groups = $this->groupRepository->getAll();
+
+        return view('contents.contacts.contact_create',compact('groups'));
 
     }
 
@@ -56,6 +64,8 @@ class ContactController extends Controller
      */
      public function store(CreateContactRequest  $request)
      {
+         $data[] = $request->all();
+         $data['status'] = 'pending';
          $this->contactRepository->store($request->all());
 
          return redirect()->route('contact.create')->with('success', ' A new Contact has been added successfully');
@@ -80,7 +90,8 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact)
     {
-        $groups = DB::table('groups')->get();
+        $groups = $this->groupRepository->getAll();
+
         return view('contents.contacts.contact_edit', compact('contact'),compact('groups'));
     }
 

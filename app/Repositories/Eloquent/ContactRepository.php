@@ -44,7 +44,7 @@ class ContactRepository extends BaseRepository implements ContactRepositoryInter
             $data[$i]['contact_firstname'] = $inputs['contact_firstname'][$i];
             $data[$i] ['contact_lastname']= $inputs['contact_lastname'][$i];
             $data[$i] ['contact_phone1'] = $inputs['contact_phone1'] [$i];
-            $data[$i] ['contact_phone2'] = $inputs['contact_phone2'] [$i];
+            $data[$i] ['contact_campus'] = $inputs['contact_campus'] [$i];
             $data[$i] ['contact_email']= $inputs['contact_email'][$i];
             $data[$i] ['group_id'] = $groupId;
             $data[$i] ['created_by']= Auth::user()->name;

@@ -13,7 +13,7 @@
         /**
          * @return Collection
          */
-        public function all(): Collection;
+        public function getAll();
 
         public function getAllWithPaginate($n);
         /**

@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             GroupSeeder::class,
             ContactSeeder::class,
+            RoleSeeder::class,
         ]);
     }
 }
